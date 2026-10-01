@@ -42,14 +42,14 @@ Modifications for JonoF's port by Jonathon Fowler (jf@jonof.id.au)
 #define MAX_CURDIR_PATH 512
 char cur_dir[MAX_CURDIR_PATH] = "ux0:data/jfduke3d/";
 
-char *Bgetcwd(char *buf, bsize_t size)
+char *__wrap_getcwd(char *buf, bsize_t size)
 {
 	if (buf != NULL) {
         strncpy(buf, cur_dir, size);
     }
     return cur_dir;
 }
-int chdir(const char *path) {
+int __wrap_chdir(const char *path) {
     return 0;
 }
 #endif
